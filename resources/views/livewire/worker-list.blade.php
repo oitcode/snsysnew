@@ -20,7 +20,9 @@
                 {{ $worker->worker_id }}
               </td>
               <td>
+                <a href="" wire:click.prevent="$emit('displayWorker', {{ $worker->worker_id }})">
                 {{ $worker->name }}
+                </a>
               </td>
               <td>
                 <small class="text-muted">

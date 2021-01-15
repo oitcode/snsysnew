@@ -18,5 +18,9 @@
     @if ($workerCreateMode)
       @livewire('worker-create')
     @endif
+
+    @if ($workerDetailMode)
+      @livewire('worker-detail', ['worker' => $displayingWorker,])
+    @endif
   </div>
 </div>
