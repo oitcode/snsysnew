@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*-------------------------------------------------------------------------
+     * Relationships
+     *-------------------------------------------------------------------------
+     *
+     */
+
+
+    /*
+     * worker table.
+     *
+     */
+    public function workers()
+    {
+        return $this->hasMany('App\Worker', 'creator_id', 'id');
+    }
 }
