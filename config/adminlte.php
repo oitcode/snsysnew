@@ -234,6 +234,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        /*
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',
@@ -241,6 +242,15 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        */
+
+        [
+            'text'        => 'Worker',
+            'url'         => '/worker',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+
+        /*
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -252,6 +262,9 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        */
+
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -290,6 +303,9 @@ return [
                 ],
             ],
         ],
+        */
+
+        /*
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -306,6 +322,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+        */
     ],
 
     /*

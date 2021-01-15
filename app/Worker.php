@@ -22,7 +22,7 @@ class Worker extends Model
 
     protected $fillable = [
         'name', 'dob', 'contact_number', 'email', 'address',
-        'nationality', 'worker_type', 'comment', 'creator_id',
+        'country', 'worker_type', 'comment', 'creator_id',
     ];
 
 

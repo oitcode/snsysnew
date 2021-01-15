@@ -16,11 +16,10 @@ class CreateWorkerTable extends Migration
         Schema::create('worker', function (Blueprint $table) {
             $table->bigIncrements('worker_id');
             $table->string('name', 255);
-            $table->date('dob')->nullable();
+            $table->string('address', 255);
             $table->string('contact_number');
             $table->string('email', 255)->nullable()->unique();
-            $table->string('address', 255);
-            $table->string('nationality');
+            $table->string('country');
             $table->string('worker_type');
 
             /*
