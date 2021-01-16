@@ -26,6 +26,23 @@
             @endif
         </div>
 
+        {{-- Family Code field --}}
+        <div class="input-group mb-3">
+            <input type="text" class="form-control {{ $errors->has('familyCode') ? 'is-invalid' : '' }}"
+                   wire:model.defer="familyCode"
+                   placeholder="Family Code">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+            @if($errors->has('familyCode'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('familyCode') }}</strong>
+                </div>
+            @endif
+        </div>
+
         {{-- Ritwik name field --}}
         <div class="input-group mb-3">
             <input type="text" class="form-control {{ $errors->has('ritwikName') ? 'is-invalid' : '' }}"
@@ -98,7 +115,7 @@
         <div class="input-group mb-3">
             <select class="custom-control form-control" wire:model.defer="workerType">
               <option>---</option>
-              <option>Ritwik</option>
+              <option>SPR</option>
               <option>Adharjyu</option>
               <option>Jajak</option>
             </select>

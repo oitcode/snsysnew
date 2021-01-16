@@ -4,25 +4,28 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Worker extends Model
+class Family extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'worker';
+    protected $table = 'family';
 
     /**
      * The primary key associated with the table.
      *
      * @var string
      */
-    protected $primaryKey = 'worker_id';
+    protected $primaryKey = 'family_id';
 
     protected $fillable = [
-        'name', 'family_id', 'ritwik_name', 'contact_number', 'email',
-        'address', 'country', 'worker_type', 'comment', 'creator_id',
+        'family_code',
+        'check_digit',
+        'address',
+        'creator_id',
+        'comment',
     ];
 
 
@@ -46,8 +49,8 @@ class Worker extends Model
      * family table.
      *
      */
-    public function family()
+    public function worker()
     {
-        return $this->belongsTo('App\Family', 'family_id', 'family_id');
+        return $this->hasOne('App\Worker', 'family_id', 'family_id');
     }
 }

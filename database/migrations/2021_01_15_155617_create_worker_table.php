@@ -16,11 +16,20 @@ class CreateWorkerTable extends Migration
         Schema::create('worker', function (Blueprint $table) {
             $table->bigIncrements('worker_id');
             $table->string('name', 255);
+            $table->string('ritwik_name', 255);
             $table->string('address', 255);
             $table->string('contact_number');
             $table->string('email', 255)->nullable()->unique();
             $table->string('country');
             $table->string('worker_type');
+
+            /*
+             * Foreign key to family table.
+             * Family code of worker
+             */
+            $table->unsignedBigInteger('family_id');
+            $table->foreign('family_id', 'fk_worker_family')
+                ->references('family_id')->on('family');
 
             /*
              * Foreign key to user table.
