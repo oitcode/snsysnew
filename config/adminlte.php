@@ -245,15 +245,34 @@ return [
         */
 
         [
-            'text'        => 'Worker',
-            'url'         => '/worker',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Remittance',
+            'url'         => '/remittance',
+            'icon'        => 'far fa-fw fa-folder',
+        ],
+
+        [
+            'text'        => 'Print',
+            'url'         => '/print',
+            'icon'        => 'fas fa-print',
         ],
 
         [
             'text'        => 'Family',
             'url'         => '/family',
             'icon'        => 'far fa-fw fa-user',
+        ],
+
+        [
+            'text'        => 'Worker',
+            'url'         => '/worker',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+
+
+        [
+            'text'        => 'Report',
+            'url'         => '/report',
+            'icon'        => 'far fa-fw fa-chart-bar',
         ],
 
         /*
