@@ -79,6 +79,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Type</th>
+            <th>Family Code</th>
             <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
@@ -101,6 +102,9 @@
                   <small class="text-muted">
                     {{ $worker->worker_type }}
                   </small>
+                </td>
+                <td>
+                    {{ $worker->family->family_code }}
                 </td>
                 <td>
                   {{ $worker->contact_number }}

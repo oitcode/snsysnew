@@ -17,6 +17,7 @@ class CreateFamilyTable extends Migration
             $table->bigIncrements('family_id');
             $table->bigInteger('family_code')->unique();
             $table->integer('check_digit');
+            $table->string('family_head', 255);
             $table->string('address', 255);
 
             /*

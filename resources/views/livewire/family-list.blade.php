@@ -4,6 +4,7 @@
       <thead>
         <tr class="text-muted">
           <th>Family Code</th>
+          <th>Family Head</th>
           <th>Address</th>
           <th>Comment</th>
         </tr>
@@ -12,12 +13,17 @@
         @foreach ($families as $family)
           <tr> 
             <td>
-              <a href="" wire:click.prevent="">
+              <a href="" wire:click.prevent="$emit('displayFamily', {{ $family->family_id }})">
                 {{ $family->family_code }}
               </a>
             </td>
             <td>
-              {{ $family->address }}
+              {{ $family->family_head }}
+            </td>
+            <td>
+              <small class="text-muted">
+                {{ $family->address }}
+              </small>
             </td>
             <td>
               {{ $family->comment }}

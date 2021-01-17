@@ -21,6 +21,7 @@ class Family extends Model
     protected $primaryKey = 'family_id';
 
     protected $fillable = [
+        'family_head',
         'family_code',
         'check_digit',
         'address',

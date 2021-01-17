@@ -7,6 +7,6 @@
 @stop
 
 @section('content')
-  TODO
 
+  @livewire('dashboard-component')
 @stop

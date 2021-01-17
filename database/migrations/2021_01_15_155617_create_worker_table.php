@@ -27,7 +27,7 @@ class CreateWorkerTable extends Migration
              * Foreign key to family table.
              * Family code of worker
              */
-            $table->unsignedBigInteger('family_id');
+            $table->unsignedBigInteger('family_id')->unique();
             $table->foreign('family_id', 'fk_worker_family')
                 ->references('family_id')->on('family');
 

@@ -47,6 +47,7 @@ class WorkerCreate extends Component
         $validatedData['contact_number'] = $validatedData['contactNumber'];
         $validatedData['worker_type'] = $validatedData['workerType'];
         $validatedData['creator_id'] = Auth::user()->id;
+        $validatedData['family_head'] = $validatedData['name'];
 
         DB::beginTransaction();
 
