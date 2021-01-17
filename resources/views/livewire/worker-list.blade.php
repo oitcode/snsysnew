@@ -18,6 +18,12 @@
         </button>
       @endif
     </div>
+
+    <div class="float-left">
+      <button class="btn btn-sm px-3 text-info" wire:click="">
+        Export To Excel
+      </button>
+    </div>
   </div>
   
   @if ($searchToolboxDisplay)
