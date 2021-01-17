@@ -250,6 +250,12 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
 
+        [
+            'text'        => 'Family',
+            'url'         => '/family',
+            'icon'        => 'far fa-fw fa-user',
+        ],
+
         /*
         ['header' => 'account_settings'],
         [

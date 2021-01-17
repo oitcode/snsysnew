@@ -30,3 +30,6 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 /* Worker */
 Route::get('/worker', 'WorkerController@index')->name('worker');
+
+/* Family */
+Route::get('/family', 'FamilyController@index')->name('family');

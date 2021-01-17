@@ -10,6 +10,8 @@ class WorkerList extends Component
 {
     public $workers = null;
 
+    public $searchToolboxDisplay = false;
+
     protected $listeners = [
         'workerAdded' => 'refreshList',
     ];
@@ -27,5 +29,15 @@ class WorkerList extends Component
     public function refreshList()
     {
         $this->workers = Worker::all();
+    }
+
+    public function showSearchToolbox()
+    {
+        $this->searchToolboxDisplay = true;
+    }
+
+    public function hideSearchToolbox()
+    {
+        $this->searchToolboxDisplay = false;
     }
 }
