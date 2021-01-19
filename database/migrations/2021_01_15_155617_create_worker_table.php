@@ -23,6 +23,10 @@ class CreateWorkerTable extends Migration
             $table->string('country');
             $table->string('worker_type');
 
+            $table->date('panja_issue_date');
+            $table->date('last_panja_renew_date');
+            $table->date('next_panja_renew_date');
+
             /*
              * Foreign key to family table.
              * Family code of worker
