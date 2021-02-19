@@ -34,4 +34,5 @@ Route::get('/worker', 'WorkerController@index')->name('worker');
 /* Family */
 Route::get('/family', 'FamilyController@index')->name('family');
 
-/* More */
+/* Public deposit */
+Route::get('/submitistavrity', 'PublicSubmitController@index')->name('publicSubmit');
