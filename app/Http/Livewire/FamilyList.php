@@ -12,7 +12,7 @@ class FamilyList extends Component
 
     public function mount()
     {
-        $this->families = Family::all();
+        $this->families = Family::orderBy('family_id', 'DESC')->limit(5)->get();
     }
 
     public function render()

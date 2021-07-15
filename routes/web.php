@@ -34,5 +34,11 @@ Route::get('/worker', 'WorkerController@index')->name('worker');
 /* Family */
 Route::get('/family', 'FamilyController@index')->name('family');
 
+/* Remittance */
+Route::get('/remittance', 'RemittanceController@index')->name('remittance');
+
 /* Public deposit */
 Route::get('/submitistavrity', 'PublicSubmitController@index')->name('publicSubmit');
+
+/* Change Password */
+Route::get('/changepassword', 'ChangePasswordController@index')->name('changepassword');

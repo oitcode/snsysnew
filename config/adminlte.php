@@ -251,12 +251,6 @@ return [
         ],
 
         [
-            'text'        => 'Print',
-            'url'         => '/print',
-            'icon'        => 'fas fa-print',
-        ],
-
-        [
             'text'        => 'Family',
             'url'         => '/family',
             'icon'        => 'far fa-fw fa-user',
@@ -268,6 +262,11 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
 
+        [
+            'text'        => 'Print',
+            'url'         => '/print',
+            'icon'        => 'fas fa-print',
+        ],
 
         [
             'text'        => 'Report',

@@ -5,7 +5,7 @@
 
   <x-slot name="cardToolBox">
     <small class="text-muted">
-      {{ $family->family_code }}
+      &nbsp;
     </small>
   </x-slot>
 
@@ -15,7 +15,7 @@
         Family Code
       </div>
       <div class="col-md-9">
-        {{ $family->family_code }}
+        {{ $family->getTenDFamCode() }}
       </div>
     </div>
 
@@ -71,6 +71,24 @@
           </button>
         @endif
       </div>
+    </div>
+
+    <div class="p-2 my-3">
+      <h2 class="h5">Oblates</h2>
+      @foreach ($family->oblates as $oblate)
+        <span class="text-primary">
+          {{ $oblate->name }}
+        </span>
+        <br />
+      @endforeach
+      <hr />
+      <h2 class="h5">Remittances</h2>
+      @foreach ($family->remittances as $remittance)
+        <span class="text-primary">
+          {{ $remittance->remittance_id }}
+        </span>
+        <br />
+      @endforeach
     </div>
   </div>
 </x-card-component>

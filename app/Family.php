@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\MiscTrait;
 
 class Family extends Model
 {
+    use MiscTrait;
+
     /**
      * The table associated with the model.
      *
@@ -47,11 +50,39 @@ class Family extends Model
     }
 
     /*
-     * family table.
+     * worker table.
      *
      */
     public function worker()
     {
         return $this->hasOne('App\Worker', 'family_id', 'family_id');
+    }
+
+    /*
+     * oblate table.
+     *
+     */
+    public function oblates()
+    {
+        return $this->hasMany('App\Oblate', 'family_id', 'family_id');
+    }
+
+    /*
+     * remittance table.
+     *
+     */
+    public function remittances()
+    {
+        return $this->hasMany('App\Remittance', 'family_id', 'family_id');
+    }
+
+    /* Other methods */
+    public function getTenDFamCode()
+    {
+        $checkDigit = $this->familyCodeCheckDigit($this->family_code);
+
+        $tenDFamCode = $this->family_code . $checkDigit;
+
+        return $tenDFamCode;
     }
 }

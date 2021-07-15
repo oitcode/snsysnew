@@ -14,7 +14,7 @@
           <tr> 
             <td>
               <a href="" wire:click.prevent="$emit('displayFamily', {{ $family->family_id }})">
-                {{ $family->family_code }}
+                {{ $family->getTenDFamCode() }}
               </a>
             </td>
             <td>
@@ -26,7 +26,9 @@
               </small>
             </td>
             <td>
-              {{ $family->comment }}
+              <small class="text-muted">
+                {{ $family->comment }}
+              </small>
             </td>
           </tr> 
         @endforeach

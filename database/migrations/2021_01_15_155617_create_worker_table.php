@@ -16,16 +16,6 @@ class CreateWorkerTable extends Migration
         Schema::create('worker', function (Blueprint $table) {
             $table->bigIncrements('worker_id');
             $table->string('name', 255);
-            $table->string('ritwik_name', 255);
-            $table->string('address', 255);
-            $table->string('contact_number');
-            $table->string('email', 255)->nullable()->unique();
-            $table->string('country');
-            $table->string('worker_type');
-
-            $table->date('panja_issue_date');
-            $table->date('last_panja_renew_date');
-            $table->date('next_panja_renew_date');
 
             /*
              * Foreign key to family table.
@@ -34,6 +24,24 @@ class CreateWorkerTable extends Migration
             $table->unsignedBigInteger('family_id')->unique();
             $table->foreign('family_id', 'fk_worker_family')
                 ->references('family_id')->on('family');
+
+            $table->string('address', 255);
+            $table->string('email', 255)->nullable()->unique();
+            $table->string('contact_number');
+            $table->string('country');
+
+            $table->date('diksha_date');
+            $table->string('ritwik_name', 255);
+            $table->date('swastyayani_date');
+
+            $table->string('citizenship_number');
+            $table->string('pan_number');
+
+            $table->string('worker_type');
+            $table->date('panja_issue_date');
+            $table->date('last_panja_renew_date');
+            $table->date('next_panja_renew_date');
+
 
             /*
              * Foreign key to user table.

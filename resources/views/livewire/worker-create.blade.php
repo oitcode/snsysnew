@@ -9,6 +9,20 @@
   </div>
 
   <div class="card-body">
+
+    <div>
+      @if (session()->has('message'))
+        <div class="alert alert-success">
+          {{ session('message') }}
+        </div>
+      @endif
+      @if (session()->has('message1'))
+        <div class="alert alert-success">
+          {{ session('message1') }}
+        </div>
+      @endif
+    </div>
+
     <div class="row">
       <div class="col-md-6">
         <h2 class="h6">Personal Details</h2>
@@ -25,6 +39,23 @@
             @if($errors->has('name'))
                 <div class="invalid-feedback">
                     <strong>{{ $errors->first('name') }}</strong>
+                </div>
+            @endif
+        </div>
+
+        {{-- Family Code --}}
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                </div>
+            </div>
+            <input type="text" class="form-control {{ $errors->has('family_code') ? 'is-invalid' : '' }}"
+                   wire:model.defer="family_code"
+                   placeholder="Family Code" autofocus>
+            @if($errors->has('family_code'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('family_code') }}</strong>
                 </div>
             @endif
         </div>
@@ -70,12 +101,12 @@
                     <span class="fas fa-phone"></span>
                 </div>
             </div>
-            <input type="text" class="form-control {{ $errors->has('contactNumber') ? 'is-invalid' : '' }}"
-                   wire:model.defer="contactNumber"
+            <input type="text" class="form-control {{ $errors->has('contact_number') ? 'is-invalid' : '' }}"
+                   wire:model.defer="contact_number"
                    placeholder="Contact Number">
-            @if($errors->has('contactNumber'))
+            @if($errors->has('contact_number'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('contactNumber') }}</strong>
+                    <strong>{{ $errors->first('contact_number') }}</strong>
                 </div>
             @endif
         </div>
@@ -105,12 +136,12 @@
                     <span class="fas fa-arrow-right"></span>
                 </div>
             </div>
-            <input type="text" class="form-control {{ $errors->has('citizenshipNumber') ? 'is-invalid' : '' }}"
-                   wire:model.defer="citizenshipNumber"
+            <input type="text" class="form-control {{ $errors->has('citizenship_number') ? 'is-invalid' : '' }}"
+                   wire:model.defer="citizenship_number"
                    placeholder="Citizenship Number">
-            @if($errors->has('citizenshipNumber'))
+            @if($errors->has('citizenship_number'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('citizenshipNumber') }}</strong>
+                    <strong>{{ $errors->first('citizenship_number') }}</strong>
                 </div>
             @endif
         </div>
@@ -122,12 +153,12 @@
                     <span class="fas fa-arrow-right"></span>
                 </div>
             </div>
-            <input type="text" class="form-control {{ $errors->has('panNumber') ? 'is-invalid' : '' }}"
-                   wire:model.defer="panNumber"
+            <input type="text" class="form-control {{ $errors->has('pan_number') ? 'is-invalid' : '' }}"
+                   wire:model.defer="pan_number"
                    placeholder="PAN Number">
-            @if($errors->has('panNumber'))
+            @if($errors->has('pan_number'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('panNumber') }}</strong>
+                    <strong>{{ $errors->first('pan_number') }}</strong>
                 </div>
             @endif
         </div>
@@ -145,11 +176,11 @@
                     <span class="fas fa-calendar"></span>
                 </div>
             </div>
-            <input type="date" class="form-control {{ $errors->has('dikshaDate') ? 'is-invalid' : '' }}"
-                   wire:model.defer="dikshaDate">
-            @if($errors->has('dikshaDate'))
+            <input type="date" class="form-control {{ $errors->has('diksha_date') ? 'is-invalid' : '' }}"
+                   wire:model.defer="diksha_date">
+            @if($errors->has('diksha_date'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('dikshaDate') }}</strong>
+                    <strong>{{ $errors->first('diksha_date') }}</strong>
                 </div>
             @endif
         </div>
@@ -161,12 +192,12 @@
                     <span class="fas fa-user"></span>
                 </div>
             </div>
-            <input type="text" class="form-control {{ $errors->has('ritwikName') ? 'is-invalid' : '' }}"
-                   wire:model.defer="ritwikName"
+            <input type="text" class="form-control {{ $errors->has('ritwik_name') ? 'is-invalid' : '' }}"
+                   wire:model.defer="ritwik_name"
                    placeholder="Ritwik Name" autofocus>
-            @if($errors->has('ritwikName'))
+            @if($errors->has('ritwik_name'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('ritwikName') }}</strong>
+                    <strong>{{ $errors->first('ritwik_name') }}</strong>
                 </div>
             @endif
         </div>
@@ -179,32 +210,16 @@
                     <span class="fas fa-calendar"></span>
                 </div>
             </div>
-            <input type="date" class="form-control {{ $errors->has('swastyayaniDate') ? 'is-invalid' : '' }}"
-                   wire:model.defer="swastyayaniDate">
-            @if($errors->has('swastyayaniDate'))
+            <input type="date" class="form-control {{ $errors->has('swastyayani_date') ? 'is-invalid' : '' }}"
+                   wire:model.defer="swastyayani_date">
+            @if($errors->has('swastyayani_date'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('swastyayaniDate') }}</strong>
-                </div>
-            @endif
-        </div>
-
-        {{-- Ritwik name field --}}
-        <div class="input-group mb-3">
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-user"></span>
-                </div>
-            </div>
-            <input type="text" class="form-control {{ $errors->has('swastyayaniRitwikName') ? 'is-invalid' : '' }}"
-                   wire:model.defer="swastyayaniRitwikName"
-                   placeholder="Ritwik Name">
-            @if($errors->has('swastyayaniRitwikName'))
-                <div class="invalid-feedback">
-                    <strong>{{ $errors->first('swastyayaniRitwikName') }}</strong>
+                    <strong>{{ $errors->first('swastyayani_date') }}</strong>
                 </div>
             @endif
         </div>
       </div>
+
       <div class="col-md-6">
         <h2 class="h6">Panja Details</h2>
         <h3 class="h6"><small>Worker Type</small></h3>
@@ -217,18 +232,19 @@
                 </small>
               </div>
             </div>
-            <select class="custom-control form-control" wire:model.defer="workerType">
+            <select class="custom-control form-control" wire:model.defer="worker_type">
               <option>---</option>
               <option>SPR</option>
               <option>Adharjyu</option>
               <option>Jajak</option>
             </select>
-            @if($errors->has('email'))
+            @if($errors->has('worker_type'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong>{{ $errors->first('worker_type') }}</strong>
                 </div>
             @endif
         </div>
+
         <h2 class="h6"><small>Panja Dates</small></h2>
         {{-- Panja Issue Date field --}}
         <div class="input-group mb-3">
@@ -242,11 +258,11 @@
                     </small>
                 </div>
             </div>
-            <input type="date" class="form-control {{ $errors->has('panjaIssueDate') ? 'is-invalid' : '' }}"
-                   wire:model.defer="panjaIssueDate" />
-            @if($errors->has('panjaIssueDate'))
+            <input type="date" class="form-control {{ $errors->has('panja_issue_date') ? 'is-invalid' : '' }}"
+                   wire:model.defer="panja_issue_date" />
+            @if($errors->has('panja_issue_date'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('panjaIssueDate') }}</strong>
+                    <strong>{{ $errors->first('panja_issue_date') }}</strong>
                 </div>
             @endif
         </div>
@@ -263,11 +279,11 @@
                     </small>
                 </div>
             </div>
-            <input type="date" class="form-control {{ $errors->has('lastPanjaRenewDate') ? 'is-invalid' : '' }}"
-                   wire:model.defer="lastPanjaRenewDate" />
-            @if($errors->has('lastPanjaRenewDate'))
+            <input type="date" class="form-control {{ $errors->has('last_panja_renew_date') ? 'is-invalid' : '' }}"
+                   wire:model.defer="last_panja_renew_date" />
+            @if($errors->has('last_panja_renew_date'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('lastPanjaRenewDate') }}</strong>
+                    <strong>{{ $errors->first('last_panja_renew_date') }}</strong>
                 </div>
             @endif
         </div>
@@ -284,11 +300,11 @@
                     </small>
                 </div>
             </div>
-            <input type="date" class="form-control {{ $errors->has('nextPanjaRenewDate') ? 'is-invalid' : '' }}"
-                   wire:model.defer="nextPanjaRenewDate" />
-            @if($errors->has('nextPanjaRenewDate'))
+            <input type="date" class="form-control {{ $errors->has('next_panja_renew_date') ? 'is-invalid' : '' }}"
+                   wire:model.defer="next_panja_renew_date" />
+            @if($errors->has('next_panja_renew_date'))
                 <div class="invalid-feedback">
-                    <strong>{{ $errors->first('nextPanjaRenewDate') }}</strong>
+                    <strong>{{ $errors->first('next_panja_renew_date') }}</strong>
                 </div>
             @endif
         </div>

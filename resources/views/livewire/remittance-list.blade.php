@@ -1,7 +1,7 @@
 <div>
   <div class="clearfix">
     <div class="float-left">
-      @if ($searchToolboxDisplay)
+      @if (false and $searchToolboxDisplay)
         <button class="btn btn-sm px-3 text-info" wire:click="hideSearchToolbox">
           <i class="fas fa-ban"></i>
           Hide Filter
@@ -26,7 +26,7 @@
     </div>
   </div>
   
-  @if ($searchToolboxDisplay)
+  @if (false and $searchToolboxDisplay or false)
     <div class="row bg-light border" style="margin: auto;">
       <div class="col-md-4 border p-0">
         <div class="px-2 py-1">
@@ -76,44 +76,39 @@
       <table class="table table-sm table-hover">
         <thead>
           <tr class="text-muted">
+            <th>Date</th>
             <th>ID</th>
-            <th>Name</th>
-            <th>Type</th>
             <th>Family Code</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
+            <th>Name</th>
+            <th>Amount</th>
             <th>Action</th>
           </tr>
         </thead>
+        @if (true)
         <tbody>
-          @if ($workers != null && count($workers) > 0)
-            @foreach ($workers as $worker)
+          @if ($remittances != null && count($remittances) > 0)
+            @foreach ($remittances as $remittance)
               <tr>
                 <td>
-                  {{ $worker->worker_id }}
+                  {{ $remittance->created_at }}
                 </td>
                 <td>
-                  <a href="" wire:click.prevent="$emit('displayWorker', {{ $worker->worker_id }})">
-                  {{ $worker->name }}
+                  {{ $remittance->remittance_id }}
+                </td>
+                <td>
+                  <a href="" wire:click.prevent="$emit('displayRemittance', {{ $remittance }})" class="">
+                    {{ $remittance->family->getTenDFamCode() }}
                   </a>
                 </td>
                 <td>
                   <small class="text-muted">
-                    {{ $worker->worker_type }}
+                    {{ $remittance->family->family_head }}
                   </small>
                 </td>
                 <td>
-                    {{ $worker->family->getTenDFamCode() }}
-                </td>
-                <td>
-                  {{ $worker->contact_number }}
-                </td>
-                <td>
-                  {{ $worker->email }}
-                </td>
-                <td>
-                  {{ $worker->address }}
+                  <small class="text-muted">
+                    {{ $remittance->total_amount }}
+                  </small>
                 </td>
                 <td>
                   <span class="btn btn-tool btn-sm" wire:click="">
@@ -132,6 +127,7 @@
             </small>
           @endif
         </tbody>
+        @endif
       </table>
     </div>
   </div>
